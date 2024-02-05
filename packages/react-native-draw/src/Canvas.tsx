@@ -329,8 +329,8 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       () => onPathsChange && onPathsChange(paths),
       [paths, onPathsChange]
     );
-
-    const panGesture = Gesture.Pan()
+    // @ts-ignore
+    const panGesture = Gesture.Pan().runOnJS(true)
       .onChange(({ x, y }) => {
         switch (tool) {
           case DrawingTool.Brush:
